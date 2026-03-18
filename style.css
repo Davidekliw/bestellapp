@@ -118,3 +118,120 @@ h2 {
     font-size: 24px;
     font-weight: 700;
 }
+
+.mealsSectionHeadlines {
+    height: 60px;
+    margin-bottom: 24px;
+    background-color: #E76C1F;
+}
+
+.categoryTitle {
+    padding-left: clamp(120px, calc(061px + 07vw), 167px)
+}
+
+
+.mealsSection {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    padding-left: clamp(40px, calc(-060px + 013vw), 120px);
+}
+
+.mealBox {
+    max-width: 713px;
+    width: 100%;
+    display: flex;
+    background-color: #FDEADC;
+    border-radius: 12px;
+    padding: 10px;
+    gap: 15px;
+}
+
+.mealImg {
+    max-width: 207px;
+    width: 100%;
+    height: 121px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.informationsBox {
+    width: 100%;
+    height: 107px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discriptionBox {
+    display: flex;
+    flex-direction: column;
+}
+
+h5 {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.ingredient {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.rightBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 115px;
+    width: 100%;
+}
+
+.price {
+    text-align: end;
+    font-size: 24px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 8px;
+    color: black;
+    border-width: 0;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #E76C1F;
+    box-shadow: 1px 2px 2px 0px #00000033;
+}
+
+footer {
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E76C1F;
+}
+
+.footerBox {
+    max-width: 531px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        font-size: 18px;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+    }
+}
