@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liefer App</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/db.js"></script>
+    <script src="scripts/template.js"></script>
+    <script src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body onload="renderAllMeals()">
+    <header>
+        <div class="headContainer">
+            <img src="/assets/img/logo1.png" alt="">
+            <div id="burgerMenu" class="burgerMenu">
+                <div id="lineA" class="line"></div>
+                <div id="lineB" class="line"></div>
+                <div id="lineC" class="line"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="atfImg"></div>
+            <div class="headLine">
+                <div class="circle">
+                    <img class="circleImg" src="/assets/img/food_small_3.jpg" alt="">
+                </div>
+                <h1>BurgerHouse</h1>
+                <h2>The best of Burgers, Pizza and Greens, all in one great placs.</h2>
+            </div>
+        </section>
+        <section class="mealsSectionHeadlines" id="mealsSectionHeadlines">
+        </section>
+        <section class="mealsSection" id="meal">
+        </section>
+    </main>
+    <footer>
+        <div class="footerBox">
+            <a href="">205 BurgerHouse</a>
+            <a href="">imprint</a>
+            <a href="">Cooki Preferences</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
