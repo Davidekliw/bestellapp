@@ -119,6 +119,17 @@ h2 {
     font-weight: 700;
 }
 
+.contentBox {
+    display: flex;
+}
+
+.mealsSection {
+    max-width: 1440px;
+    width: calc(100% - 435px);
+    margin-bottom: 123px;
+    padding-left: clamp(20px, calc(-0480px + 042vw), 120px);
+}
+
 .mealsSectionHeadlines {
     height: 92px;
     display: flex;
@@ -150,13 +161,6 @@ h2 {
     position: absolute;
     background-color: #E76C1F;
     z-index: -1;
-}
-
-.mealsSection {
-    max-width: 1440px;
-    width: 100%;
-    margin: auto;
-    padding-left: clamp(40px, calc(-060px + 013vw), 120px);
 }
 
 .mealBox {
