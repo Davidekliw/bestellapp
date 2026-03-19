@@ -27,3 +27,60 @@ function generateMealsSectionHeadlines(path, title) {
         </div>
         `
 };
+
+function generateBasket() {
+    return `<h5 class="basketTitle">Your Basket</h5>
+            <div class="buttomBox">
+                <div class="calculationTable">
+                    <div class="subtotalLine">
+                        <div>Subtotal</div>
+                        <div></div>
+                    </div>
+                    <div class="deliverFee">
+                        <div>Delivery fee</div>
+                        <div>4,99€</div>
+                    </div>
+                    <div class="decorationLine"></div>
+                    <div class="totalLine">
+                        <div>Total</div>
+                        <div></div>
+                    </div>
+                </div>
+                <button class="orderButton">Buy now</button>
+            </div>`
+};
+
+function generateBasket() {
+    return `<h5 class="basketTitle">Your Basket</h5>
+            <div class="buttomBox">
+                <div class="calculationTable">
+                    <div class="subtotalLine">
+                        <div>Subtotal</div>
+                        <div></div>
+                    </div>
+                    <div class="deliverFee">
+                        <div>Delivery fee</div>
+                        <div>4,99€</div>
+                    </div>
+                    <div class="decorationLine"></div>
+                    <div class="totalLine">
+                        <div>Total</div>
+                        <div></div>
+                    </div>
+                </div>
+                <button class="orderButton">Buy now</button>
+            </div>`
+};
+
+function generateEmptyBasket() {
+    return `
+            <div class="emptyBasked">
+                <h5 class="basketTitle">Your Basket</h5>
+                <div class="textBox">
+                    <p>Nothing here yet.</p>
+                    <p>Go ahead and choose something</p>
+                    <p>delicious!</p>
+                </div>
+                <img src="assets/icons/basket_creme.png" alt="">
+            </div>`
+}
