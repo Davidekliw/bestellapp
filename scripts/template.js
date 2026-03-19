@@ -16,3 +16,14 @@ function generateMealsTemplate(path, title, ingredient, price, i) {
         `
 };
 
+function generateMealsSectionHeadlines(path, title) {
+    return `
+        <div class="mealsSectionHeadlines" id="mealsSectionHeadlines">
+            <img src="${path}" alt="">
+                <div class="textBox">
+                    <div class="categoryTitle">${title}</div>
+                </div>
+            <div class="backgroundColor"></div>
+        </div>
+        `
+};
