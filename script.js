@@ -30,3 +30,10 @@ function getMealsHeadlines(categoryHeadings) {
     const title = MENUHEADLINES[categoryHeadings]['title'];
     return generateMealsSectionHeadlines(path, title);
 }
+
+
+function changePriceFormat(price) {
+    let formatedPrice = parseFloat(price);
+    formatedPrice = formatedPrice.toFixed(2);
+    return formatedPrice.toLocaleString('de-DE');
+}
