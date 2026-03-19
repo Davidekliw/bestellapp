@@ -120,15 +120,37 @@ h2 {
 }
 
 .mealsSectionHeadlines {
-    height: 60px;
+    height: 92px;
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    margin-top: 45px;
     margin-bottom: 24px;
-    background-color: #E76C1F;
+    padding-left: clamp(0px, calc(-060px + 08vw), 48px);
+}
+
+.textBox {
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 .categoryTitle {
-    padding-left: clamp(120px, calc(061px + 07vw), 167px)
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
 }
 
+.backgroundColor {
+    height: 60px;
+    left: 0;
+    right: 0;
+    max-width: 100vw;
+    width: 100%;
+    position: absolute;
+    background-color: #E76C1F;
+    z-index: -1;
+}
 
 .mealsSection {
     max-width: 1440px;
