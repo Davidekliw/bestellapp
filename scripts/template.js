@@ -28,13 +28,14 @@ function generateMealsSectionHeadlines(path, title) {
         `
 };
 
-function generateBasket() {
-    return `<h5 class="basketTitle">Your Basket</h5>
+function generateBasketContentTemplate() {
+    return `
+        <div class="dishes" id="dishes"></div>
             <div class="buttomBox">
                 <div class="calculationTable">
-                    <div class="subtotalLine">
+                <div class="subTotalLine">
                         <div>Subtotal</div>
-                        <div></div>
+                    <div id="subTotal"></div>
                     </div>
                     <div class="deliverFee">
                         <div>Delivery fee</div>
@@ -46,19 +47,26 @@ function generateBasket() {
                         <div></div>
                     </div>
                 </div>
-                <button class="orderButton">Buy now</button>
-            </div>`
-};
+            <button class="orderButton" id="orderButton"></button>
+        </div>
+    `;
+}
 
-function generateEmptyBasket() {
+
+function generateDishesTemplate(nbr, title, price, amount) {
     return `
-            <div class="emptyBasked">
-                <h5 class="basketTitle">Your Basket</h5>
-                <div class="textBox">
-                    <p>Nothing here yet.</p>
-                    <p>Go ahead and choose something</p>
-                    <p>delicious!</p>
+        <div class="mealBasketBox">
+            <div class="titleBasketLine">
+                <div class="amount">${amount}</div>
+                <div class="mealTitel">x ${title}</div>
+            </div>
+            <div class="bottomBasketBox">
+                <div class="leftBasketBox">
+                    <img src="assets/icons/delete.png">
+                    <div onclick="addMore(${nbr})">1+</div>
                 </div>
-                <img src="assets/icons/basket_creme.png" alt="">
-            </div>`
+                <div class="rightBasketBox">${price}€</div>
+            </div>
+        </div>
+    `;
 }

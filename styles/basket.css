@@ -2,13 +2,14 @@
     height: 794px;
     position: sticky;
     width: 435px;
-    margin-top: 77px;
     top: 0;
     right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-between; */
+    margin-top: 77px;
+    padding: 60px 16px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     background-color: #363534;
@@ -18,19 +19,110 @@
     font-size: 32px;
     font-weight: 700;
     color: #FDEADC;
+    margin-bottom: 36px;
 }
 
-.emptyBasked {
+.basketContent {
+    max-width: 340px;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 36px;
+}
+
+.dishes {
+    display: flex;
+    max-height: 355px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.mealBasketBox {
+    width: 100%;
+    /* max-height: 129px; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #FDEADC;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.titleBasketLine {
+    max-width: 232px;
+    /* min-height: 26px; */
+    /* max-height: 52px; */
+    /* height: 100%; */
+    line-height: 26px;
+    display: flex;
+    font-weight: 700;
+    font-size: 22px;
+    gap: 6px;
+}
+
+.Famount {
+    display: flex;
+}
+
+.mealTitel {
+    white-space: wrap;
+}
+
+.bottomBasketBox {
+    /* width: 100%; */
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftBasketBox {
+    display: flex;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.rightBasketBox {}
+
+.addButton {
+    display: block;
+    color: black;
+}
+
+.addedButton {
+    display: block;
+    color: #E76C1F;
+}
+
+.addedButton:hover {
+    cursor: default;
+    box-shadow: none;
+}
+
+
+
+
+
+
+.emptyBasked {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
 }
 
-.textBox {
+.basketTextBox {
     height: 100%;
     display: flex;
+    text-align: center;
     flex-direction: column;
     gap: 8px;
 }
@@ -57,7 +149,7 @@ p {
     color: white;
 }
 
-.subtotalLine {
+.subTotalLine {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
@@ -89,4 +181,10 @@ p {
     height: 64px;
     border-radius: 60px;
     background-color: #E76C1F;
+    color: #FBFBFB;
+}
+
+.orderButton:hover {
+    color: #FBFBFB;
+
 }
