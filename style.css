@@ -120,14 +120,19 @@ h2 {
 }
 
 .contentBox {
+    max-width: 1440px;
     display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 .mealsSection {
-    max-width: 1440px;
     width: calc(100% - 435px);
     margin-bottom: 123px;
     padding-left: clamp(20px, calc(-0480px + 042vw), 120px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .mealsSectionHeadlines {
@@ -209,6 +214,7 @@ h5 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     max-width: 115px;
     width: 100%;
 }
@@ -260,4 +266,8 @@ footer {
         color: white;
         text-decoration: none;
     }
+}
+
+.dNone {
+    display: none !important;
 }
