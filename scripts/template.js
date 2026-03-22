@@ -1,4 +1,4 @@
-function generateMealsTemplate(path, title, ingredient, price, i) {
+function generateMealsTemplate(path, title, ingredient, price, type, i) {
     return `
             <div id="mealBox" class="mealBox">
                 <img class="mealImg" src="${path}" alt="">
@@ -8,8 +8,9 @@ function generateMealsTemplate(path, title, ingredient, price, i) {
                         <div class="ingredient" id="ingredient">${ingredient}</div>
                     </div>
                     <div class="rightBox">
-                        <div class="price" id="price">${price} €</div>
-                        <button>Add to basket</button>
+                        <div class="price" id="price">${price}€</div>
+                        <button class="addButton" onclick="addToBasket('${type}', ${i})" id="addButton${i}">Add to basket</button>
+                        <button class="dNone addedButton" id="addedButton${i}">Added 1</button>
                     </div>
                 </div>
             </div>
@@ -31,22 +32,22 @@ function generateMealsSectionHeadlines(path, title) {
 function generateBasketContentTemplate() {
     return `
         <div class="dishes" id="dishes"></div>
-            <div class="buttomBox">
-                <div class="calculationTable">
+        <div class="buttomBox">
+            <div class="calculationTable">
                 <div class="subTotalLine">
-                        <div>Subtotal</div>
+                    <div>Subtotal</div>
                     <div id="subTotal"></div>
-                    </div>
-                    <div class="deliverFee">
-                        <div>Delivery fee</div>
-                        <div>4,99€</div>
-                    </div>
-                    <div class="decorationLine"></div>
-                    <div class="totalLine">
-                        <div>Total</div>
-                        <div></div>
-                    </div>
                 </div>
+                <div class="deliverFee">
+                    <div>Delivery fee</div>
+                    <div>4,99€</div>
+                </div>
+                <div class="decorationLine"></div>
+                <div class="totalLine">
+                    <div>Total</div>
+                    <div></div>
+                </div>
+            </div>
             <button class="orderButton" id="orderButton"></button>
         </div>
     `;
