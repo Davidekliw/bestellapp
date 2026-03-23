@@ -18,7 +18,7 @@
     <header>
         <div class="headContainer">
             <img src="/assets/img/logo1.png" alt="">
-            <div id="burgerMenu" class="burgerMenu">
+            <div onclick="toggleBurgerMenu()" id="burgerMenu" class="burgerMenu">
                 <div id="lineA" class="line"></div>
                 <div id="lineB" class="line"></div>
                 <div id="lineC" class="line"></div>
@@ -39,8 +39,20 @@
         <div class="contentBox">
             <section class="mealsSection" id="meal">
             </section>
+            <div class="bottomMobileMenu">
+                <img src="assets/icons/home.png" alt="">
+                <img src="assets/icons/user.png" alt="">
+                <img src="assets/icons/mealbag.png" alt="">
+                <div class="cart">
+                    <img onclick="toggleBasket()" src="assets/icons/basket.png" alt="">
+                    <span class="badge" id="cartCount">0</span>
+                </div>
+            </div>
             <div class="basket" id="basket">
-                <h5 class="basketTitle">Your Basket</h5>
+                <div class="posRel">
+                    <h5 class="basketTitle">Your Basket</h5>
+                    <img onclick="toggleBasket()" class="closeIcon" src="assets/icons/close.png" alt="">
+                </div>
                 <div class="emptyBasked" id="emptyBasked">
                     <div class="basketTextBox">
                         <p>Nothing here yet.</p>

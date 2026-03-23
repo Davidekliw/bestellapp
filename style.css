@@ -12,11 +12,10 @@ body {
 }
 
 header {
-    height: 128px;
+    height: clamp(79px, calc(-035px + 016vh), 128px);
     background-color: #E76C1F;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
 }
 
 .headContainer {
@@ -26,7 +25,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 80px;
+    padding: 0 clamp(20px, calc(-040px + 015vw), 80px);
 }
 
 .burgerMenu {
@@ -92,6 +91,7 @@ header {
     justify-content: center;
     flex-direction: column;
     margin-top: -150px;
+    text-align: center;
 }
 
 .circle {
@@ -110,13 +110,16 @@ header {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: clamp(36px, 2.36rem + 0.71vw, 48px);
     font-weight: 700;
+    padding: 0 16px;
 }
 
 h2 {
     font-size: 24px;
     font-weight: 700;
+    line-height: 28px;
+    padding: 0 16px;
 }
 
 .contentBox {
@@ -153,7 +156,8 @@ h2 {
 
 .categoryTitle {
     color: white;
-    font-size: 40px;
+    font-size: clamp(1.5rem, -0.08rem + 8.33vw, 2.5rem);
+    line-height: 120%;
     font-weight: 700;
 }
 
@@ -188,14 +192,15 @@ h2 {
 
 .informationsBox {
     width: 100%;
-    height: 107px;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .discriptionBox {
     display: flex;
     flex-direction: column;
+    line-height: 24px;
 }
 
 h5 {
@@ -270,4 +275,92 @@ footer {
 
 .dNone {
     display: none !important;
+}
+
+@media (max-width: 1050px) {
+    .mealsSection {
+        align-items: center;
+        flex: 1;
+        padding: clamp(20px, calc(-0480px + 042vw), 120px);
+    }
+
+    footer {
+        margin-bottom: 78px;
+    }
+}
+
+@media (max-width: 700px) {
+    .mealBox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mealImg {
+        max-width: 100%;
+    }
+
+    .informationsBox {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .rightBox {
+        flex-direction: row;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .footerBox {
+        padding: clamp(20px, calc(-0480px + 042vw), 120px);
+    }
+}
+
+@media (max-width: 600px) {
+    .mealsSectionHeadlines {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0;
+
+        img {
+            width: 58px;
+            height: 60px;
+            margin-bottom: -16px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .footerBox {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media (max-height: 1000px) {
+    header {
+        height: clamp();
+    }
+}
+
+@keyframes turnLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(45deg) translate(-4px, -4px);
+    }
+}
+
+@keyframes turnRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-45deg) translate(-4px, 4px);
+    }
 }
