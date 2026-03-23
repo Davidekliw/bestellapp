@@ -18,7 +18,7 @@
     display: none;
 }
 
-.basketMobileMenu {
+.bottomMobileMenu {
     display: none;
 }
 
@@ -220,7 +220,7 @@ p {
         }
     }
 
-    .closeIcon{
+    .closeIcon {
         position: absolute;
         top: 0;
         right: -44px;
