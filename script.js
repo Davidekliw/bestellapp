@@ -2,22 +2,6 @@ let basketAll = [];
 let deliveryPrice = 4.99;
 let items = 0;
 
-function toggleBurgerMenu() {
-    document.getElementById('lineA').classList.toggle('rotateNegative');
-    document.getElementById('lineB').classList.toggle('dNone');
-    document.getElementById('lineC').classList.toggle('rotatePositive');
-}
-
-function toggleBasket() {
-    document.getElementById("basket").classList.toggle('active');
-}
-
-function updateCart(count) {
-    const badge = document.getElementById('cartCount');
-    badge.textContent = count;
-    badge.style.display = count > 0 ? 'flex' : 'none';
-}
-
 function renderAllMeals() {
     getMeals(BURGERS, "burgers");
     getMeals(PIZZA, "pizza");
@@ -45,17 +29,6 @@ function getMealsHeadlines(categoryHeadings) {
     return generateMealsSectionHeadlines(path, title);
 }
 
-function renderBasket() {
-    if (basketAll.length > 0) {
-        document.getElementById("emptyBasked").style.display = "none";
-        document.getElementById("basketContent").style.display = "flex";
-    }
-    else {
-        document.getElementById("emptyBasked").style.display = "flex";
-        document.getElementById("basketContent").style.display = "none";
-    }
-}
-
 function formatIngredients(ingrediets) {
     return ingrediets.join(', ');
 }
@@ -65,7 +38,6 @@ function formatPrice(price) {
     formatedPrice = formatedPrice.toLocaleString('de-DE', { minimumFractionDigits: 2 });
     return formatedPrice;
 }
-
 
 function getCategoryFromName(type) {
     let category;
@@ -82,30 +54,25 @@ function lookForIndex(category, mealsId) {
 function addToBasket(type, mealsId) {
     const category = getCategoryFromName(type);
     let position = lookForIndex(category, mealsId);
-    let mealsid = category[position]['mealsId'];
     let path = category[position]['imgPath'];
     let title = category[position]['title'];
     let price = category[position]['price'];
     basketAll.push({ "mealsId": mealsId, "path": path, "title": title, "price": price, "amount": 1 });
-    updateCart(basketAll.length);
-    renderBasket();
     renderBasketContent(category, position);
+    updateFrontEnd(category, position, mealsId);
+}
+
+function updateFrontEnd(category, position, mealsId) {
+    renderBasket();
     toggleButton("addButton", mealsId);
     toggleButton("addedButton", mealsId);
+    updateCart(basketAll.length);
     showSumTotal();
     sumTotal();
 }
 
-function toggleButton(button, i) {
-    let buttonName = button + i;
-    let currentButtonName = document.getElementById(buttonName);
-    currentButtonName.classList.toggle("dNone");
-}
-
 function renderBasketContent(category, i) {
-    let basket = document.getElementById("basketContent");
-    basket.innerHTML = '';
-    basket.innerHTML = generateBasketContentTemplate(category, i);
+    document.getElementById("basketContent").innerHTML = generateBasketContentTemplate(category, i);
     renderDishes();
 }
 
@@ -140,52 +107,42 @@ function calculateSum() {
 function sumTotal() {
     let subTotal = calculateSum();
     let sumTotal = Number(subTotal) + Number(deliveryPrice);
-    let showSumTotal = document.getElementById("orderButton");
-    showSumTotal.innerHTML = `Buy now (${formatPrice(sumTotal)})`;
+    document.getElementById("orderButton").innerHTML = `Buy now (${formatPrice(sumTotal)})`;
 }
 
-function showMinusIcon(mealsId) {
-    document.getElementById(`${mealsId}_minus`).classList.remove("dNone");
-    document.getElementById(`${mealsId}_delete`).classList.add("dNone");
-    document.getElementById(`${mealsId}_garbage`).classList.remove("dNone");
+function calculateNewAmount(currentAmount, operation) {
+    if (operation === "plus") return currentAmount + 1;
+    if (operation === "minus") return currentAmount - 1;
+    return currentAmount;
 }
 
-function showGarbageIcon(mealsId) {
-    document.getElementById(`${mealsId}_minus`).classList.add("dNone");
-    document.getElementById(`${mealsId}_delete`).classList.remove("dNone");
-    document.getElementById(`${mealsId}_garbage`).classList.add("dNone");
+function updateAmountIcon(newAmount, mealsId) {
+    if (newAmount > 1) {
+        showMinusIcon(mealsId);
+    } else {
+        showGarbageIcon(mealsId);
+    }
 }
 
+function updateBasketItemView(mealsId, newAmount, title, newPrice) {
+    document.getElementById(`${mealsId}_price`).innerHTML = `${formatPrice(newPrice)}€`;
+    document.getElementById(`${mealsId}_amount`).innerHTML = newAmount;
+    document.getElementById(`${mealsId}_titleAmount`).innerHTML = `${newAmount} x ${title}`;
+}
 
 function changeAmount(mealsId, operation) {
     let basketPosition = lookForIndex(basketAll, mealsId);
     let currentAmount = basketAll[basketPosition]["amount"];
     let title = basketAll[basketPosition]["title"];
-    let newAmount;
-    if (operation == "plus") {
-        newAmount = ++currentAmount;
-    }
-    if (operation == "minus") {
-        newAmount = --currentAmount;
-    }
-    else {
-        newAmount = currentAmount;
-    }
-    if (newAmount > 1) {
-        showMinusIcon(mealsId);
-    }
-    if (newAmount < 2) {
-        showGarbageIcon(mealsId);
-    }
     let price = basketAll[basketPosition]["price"];
+
+    let newAmount = calculateNewAmount(currentAmount, operation);
     let newPrice = price * newAmount;
+
     basketAll[basketPosition]["amount"] = newAmount;
-    let priceField = document.getElementById(`${mealsId}_price`);
-    priceField.innerHTML = `${formatPrice(newPrice)}€`;
-    let amount = document.getElementById(`${mealsId}_amount`);
-    amount.innerHTML = newAmount;
-    let titleAmount = document.getElementById(`${mealsId}_titleAmount`);
-    titleAmount.innerHTML = `${newAmount} x ${title}`;
+
+    updateAmountIcon(newAmount, mealsId);
+    updateBasketItemView(mealsId, newAmount, title, newPrice);
     showSumTotal();
     sumTotal();
 }
@@ -195,11 +152,6 @@ function removeFromBasket(mealsId) {
     if (position != -1) {
         basketAll.splice(position, 1);
         document.getElementById(mealsId).remove();
-        toggleButton("addButton", mealsId);
-        toggleButton("addedButton", mealsId);
-        showSumTotal();
-        updateCart(basketAll.length);
-        sumTotal();
-        renderBasket();
+        updateFrontEnd(category, position, mealsId);
     }
 }
