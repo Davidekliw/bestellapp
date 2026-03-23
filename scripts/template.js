@@ -1,4 +1,4 @@
-function generateMealsTemplate(path, title, ingredient, price, type, i) {
+function generateMealsTemplate(mealsId, path, title, ingredient, price, type) {
     return `
             <div id="mealBox" class="mealBox">
                 <img class="mealImg" src="${path}" alt="">
@@ -9,8 +9,8 @@ function generateMealsTemplate(path, title, ingredient, price, type, i) {
                     </div>
                     <div class="rightBox">
                         <div class="price" id="price">${price}€</div>
-                        <button class="addButton" onclick="addToBasket('${type}', ${i})" id="addButton${i}">Add to basket</button>
-                        <button class="dNone addedButton" id="addedButton${i}">Added 1</button>
+                        <button class="addButton" onclick="addToBasket('${type}', '${mealsId}')" id="addButton${mealsId}">Add to basket</button>
+                        <button class="dNone addedButton" id="addedButton${mealsId}">Added 1</button>
                     </div>
                 </div>
             </div>
@@ -54,19 +54,21 @@ function generateBasketContentTemplate() {
 }
 
 
-function generateDishesTemplate(nbr, title, price, amount) {
+function generateDishesTemplate(mealsId, title, price, amount) {
     return `
-        <div class="mealBasketBox">
+        <div class="mealBasketBox" id="${mealsId}">
             <div class="titleBasketLine">
-                <div class="amount">${amount}</div>
-                <div class="mealTitel">x ${title}</div>
+                <div id="${mealsId}_titleAmount" class="mealTitle">${amount} x ${title}</div>
+                <img id="${mealsId}_garbage" onclick="removeFromBasket('${mealsId}')" class="dNone garbageIcon" src="assets/icons/delete.png">
             </div>
             <div class="bottomBasketBox">
                 <div class="leftBasketBox">
-                    <img src="assets/icons/delete.png">
-                    <div onclick="addMore(${nbr})">1+</div>
+                    <img id="${mealsId}_delete" onclick="removeFromBasket('${mealsId}')" class="garbageIcon" src="assets/icons/delete.png">
+                    <div id="${mealsId}_minus" class="dNone plusAndMinus" onclick="changeAmount('${mealsId}', 'minus')">&nbsp;-&nbsp;</div>
+                    <div id="${mealsId}_amount">${amount}</div>
+                    <div id="${mealsId}_add" class="plusAndMinus" onclick="changeAmount('${mealsId}', 'plus')">&nbsp;+</div>
                 </div>
-                <div class="rightBasketBox">${price}€</div>
+                <div id="${mealsId}_price" class="rightBasketBox">${price}€</div>
             </div>
         </div>
     `;
