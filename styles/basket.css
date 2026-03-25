@@ -187,6 +187,7 @@ p {
     border-radius: 60px;
     background-color: #E76C1F;
     color: #FBFBFB;
+    font-size: clamp(24px, calc(13px + 2vw), 32px);
 }
 
 .orderButton:hover {
