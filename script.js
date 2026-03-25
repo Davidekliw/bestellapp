@@ -108,6 +108,7 @@ function sumTotal() {
     let subTotal = calculateSum();
     let sumTotal = Number(subTotal) + Number(deliveryPrice);
     document.getElementById("orderButton").innerHTML = `Buy now (${formatPrice(sumTotal)}€)`;
+    document.getElementById("totalLine").innerHTML = `${formatPrice(sumTotal)}€`;
 }
 
 function calculateNewAmount(currentAmount, operation) {

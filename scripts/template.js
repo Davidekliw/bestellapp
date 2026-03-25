@@ -45,7 +45,7 @@ function generateBasketContentTemplate() {
                 <div class="decorationLine"></div>
                 <div class="totalLine">
                     <div>Total</div>
-                    <div></div>
+                    <div id="totalLine"></div>
                 </div>
             </div>
             <button class="orderButton" id="orderButton"></button>
