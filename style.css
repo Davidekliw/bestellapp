@@ -175,9 +175,26 @@ footer {
     }
 }
 
-@media (max-height: 1000px) {
-    header {
-        height: clamp();
+@media (max-height: 900px) {
+    .hero {
+        padding: 16px;
+    }
+
+    .atfImg {
+        height: 346px;
+        border-radius: 16px;
+        margin-top: 0;
+    }
+
+    .circle {
+        width: 136px;
+        height: 136px;
+        border-radius: 68px;
+    }
+
+    .circleImg {
+        width: 120px;
+        border-radius: 60px;
     }
 }
 
