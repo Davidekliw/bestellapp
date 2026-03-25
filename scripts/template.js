@@ -48,7 +48,7 @@ function generateBasketContentTemplate() {
                     <div id="totalLine"></div>
                 </div>
             </div>
-            <button class="orderButton" id="orderButton"></button>
+            <button onclick="orderBasket()" class="orderButton" id="orderButton"></button>
         </div>
     `;
 }

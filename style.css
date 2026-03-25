@@ -129,6 +129,16 @@ h2 {
     margin: auto;
 }
 
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(69, 68, 68, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
 footer {
     height: 128px;
     display: flex;
@@ -153,6 +163,10 @@ footer {
 
 .dNone {
     display: none !important;
+}
+
+.noScroll {
+    overflow: hidden;
 }
 
 @media (max-width: 1050px) {

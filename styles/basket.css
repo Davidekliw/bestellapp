@@ -212,9 +212,7 @@ p {
         border-top-right-radius: 30px;
         border-bottom-left-radius: 0;
         background-color: #363534;
-
         transform: translateY(100%);
-        transition: transform 0.3s ease, opacity 0.3s ease;
 
         .basketContent {
             max-width: 300px;
@@ -236,6 +234,7 @@ p {
 
     .basket.active {
         transform: translateY(0);
+        animation: bounceIn 1200ms ease;
     }
 
     .bottomMobileMenu {
@@ -305,5 +304,23 @@ p {
 
     .mealBasketBox {
         padding: 16px;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(100%);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/meals.css">
     <link rel="stylesheet" href="styles/basket.css">
+    <link rel="stylesheet" href="styles/userInormations.css">
     <script src="scripts/db.js"></script>
     <script src="scripts/template.js"></script>
     <script src="scripts/styling.js"></script>
@@ -64,6 +65,20 @@
                     <img src="assets/icons/basket_creme.png" alt="">
                 </div>
                 <div class="basketContent" id="basketContent"></div>
+            </div>
+        </div>
+        <div class="overlay dNone" id="overlay">
+            <div class="confirmBox">
+                <div class="alignRight">
+                    <img onclick="closeMsg()" src="assets/icons/close.png" alt="">
+                </div>
+                <div class="confirmedMsgBox">
+                    <img src="assets/icons/car.png" alt="">
+                    <div class="confirmedMsg">
+                        <div class="upperText">Order confirmed!</div>
+                        <div class="lowerText">Your food is on the way!</div>
+                    </div>
+                </div>
             </div>
         </div>
         </div>

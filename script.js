@@ -148,11 +148,25 @@ function changeAmount(mealsId, operation) {
     sumTotal();
 }
 
-function removeFromBasket(mealsId) {
+async function removeFromBasket(mealsId) {
     const position = lookForIndex(basketAll, mealsId);
     if (position != -1) {
         basketAll.splice(position, 1);
         document.getElementById(mealsId).remove();
         updateFrontEnd(mealsId);
     }
+}
+
+async function clearBasket() {
+    while (basketAll.length != 0) {
+        await removeFromBasket(basketAll[basketAll.length - 1].mealsId);
+    }
+}
+
+async function orderBasket() {
+    await clearBasket();
+    showOrderMsg();
+    setTimeout(() => {
+        closeMsg();
+    }, 2000);
 }

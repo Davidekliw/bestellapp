@@ -1,0 +1,86 @@
+.confirmBox {
+    width: 415px;
+    height: 269px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    padding: 32px 40px;
+    border-radius: 16px;
+    background-color: #363534;
+    transform: translateY(100%);
+}
+
+.confirmBox.active {
+    animation: slideIn 400ms ease forwards;
+}
+
+.confirmBox.exit {
+    animation: slideOut 400ms ease forwards;
+}
+
+.alignRight {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+        width: 16px;
+        height: 16px;
+    }
+
+    img:hover {
+        cursor: pointer;
+    }
+}
+
+.confirmedMsgBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    img {
+        width: 80px;
+    }
+}
+
+.confirmedMsg {
+    text-align: center;
+    font-weight: 700;
+    color: #fdeadc;
+
+    .upperText {
+        font-size: clamp(36px, calc(28px + 1vw), 42px);
+        line-height: 100%;
+    }
+
+    .lowerText {
+        font-size: clamp(24px, calc(17px + 1vw), 29px);
+        line-height: 100%;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

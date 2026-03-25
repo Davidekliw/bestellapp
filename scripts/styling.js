@@ -41,3 +41,19 @@ function updateCart(count) {
     badge.textContent = count;
     badge.style.display = count > 0 ? 'flex' : 'none';
 }
+
+function closeMsg() {
+    document.querySelector('.confirmBox').classList.remove('active');
+    document.querySelector('.confirmBox').classList.add('exit');
+    setTimeout(() => {
+        document.body.classList.remove('noScroll');
+        document.getElementById('overlay').classList.add('dNone');
+        document.querySelector('.confirmBox').classList.remove('exit');
+    }, 400);
+}
+
+function showOrderMsg() {
+    document.body.classList.add('noScroll');
+    document.getElementById('overlay').classList.remove('dNone');
+    document.querySelector('.confirmBox').classList.add('active');
+}
