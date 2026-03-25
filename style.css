@@ -78,7 +78,7 @@ header {
     width: 100%;
     height: 508px;
     margin-top: -69px;
-    background-image: url("/assets/img/food_small_13.jpg");
+    background-image: url("assets/img/food_small_13.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
