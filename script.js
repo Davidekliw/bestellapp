@@ -59,10 +59,10 @@ function addToBasket(type, mealsId) {
     let price = category[position]['price'];
     basketAll.push({ "mealsId": mealsId, "path": path, "title": title, "price": price, "amount": 1 });
     renderBasketContent(category, position);
-    updateFrontEnd(category, position, mealsId);
+    updateFrontEnd(mealsId);
 }
 
-function updateFrontEnd(category, position, mealsId) {
+function updateFrontEnd(mealsId) {
     renderBasket();
     toggleButton("addButton", mealsId);
     toggleButton("addedButton", mealsId);
@@ -107,7 +107,7 @@ function calculateSum() {
 function sumTotal() {
     let subTotal = calculateSum();
     let sumTotal = Number(subTotal) + Number(deliveryPrice);
-    document.getElementById("orderButton").innerHTML = `Buy now (${formatPrice(sumTotal)})`;
+    document.getElementById("orderButton").innerHTML = `Buy now (${formatPrice(sumTotal)}€)`;
 }
 
 function calculateNewAmount(currentAmount, operation) {
@@ -152,6 +152,6 @@ function removeFromBasket(mealsId) {
     if (position != -1) {
         basketAll.splice(position, 1);
         document.getElementById(mealsId).remove();
-        updateFrontEnd(category, position, mealsId);
+        updateFrontEnd(mealsId);
     }
 }
