@@ -10,8 +10,8 @@ function renderAllMeals() {
 }
 
 function getMeals(category, type) {
-    let box = document.getElementById('meal');
-    box.innerHTML += getMealsHeadlines(type);
+    let mealsSection = document.getElementById('meal');
+    mealsSection.innerHTML += getMealsHeadlines(type);
     for (let i = 0; i < category.length; i++) {
         const mealsId = category[i]['mealsId'];
         const path = category[i]['imgPath'];
@@ -19,7 +19,7 @@ function getMeals(category, type) {
         const ingredient = formatIngredients(category[i]['ingredient']);
         let price = category[i]['price'];
         price = formatPrice(price);
-        box.innerHTML += generateMealsTemplate(mealsId, path, title, ingredient, price, type);
+        mealsSection.innerHTML += generateMealsTemplate(mealsId, path, title, ingredient, price, type);
     }
 }
 
