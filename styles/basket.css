@@ -101,6 +101,7 @@
     cursor: pointer;
     background-color: white;
     color: #E76C1F;
+    border-radius: 8px;
 }
 
 .addButton {
@@ -258,6 +259,7 @@ p {
         img:hover {
             background-color: #E76C1F;
             cursor: pointer;
+            border-radius: 8px;
         }
 
         .cart {
